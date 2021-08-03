@@ -1,6 +1,10 @@
 #!/bin/bash
 cd `dirname $0`
 
+mkdir -p timecard/assets/js
+mkdir -p timecard/assets/css
+mkdir -p timecard/images
+
 for js in `find src/assets/js/ -name *.js | grep -v min.`;do
 	dst=${js/src/timecard}
 	dst="${dst%%.js}.min.js"

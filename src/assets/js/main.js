@@ -11,16 +11,29 @@ function setLocation(pos){
 
 	document.getElementById("lat").innerHTML = lat;
 	document.getElementById("lon").innerHTML = lon;
-        document.getElementById("date").innerHTML = d;
+	document.getElementById("date").innerHTML = d;
 
-	var request = 'date='+d+'&lat='+lat+'&lon='+lon;
-	console.log('request:'+request);
+	var json_asocc = {
+		'date':d,
+		'lat':lat,
+		'lon':lon
+	};
+	var json_text = JSON.stringify(json_asocc);
+	console.log('json_text:'+json_text);
 
 	//データを送信
 	xhr = new XMLHttpRequest;       //インスタンス作成
-	xhr.open('post', "./", true);    //(1)
-	xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-	xhr.send(request);    //送信実行
+	xhr.onload = function(){        //レスポンスを受け取った時の処理（非同期）
+		var res = xhr.responseText;
+		if (res.length>0) console.log(res);
+
+	};
+	xhr.onerror = function(){       //エラーが起きた時の処理（非同期）
+		alert("error!");
+	}
+	xhr.open('post', "api/", true);    //(1)
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.send(json_text);  
 }
 
 // エラー時に呼び出される関数
