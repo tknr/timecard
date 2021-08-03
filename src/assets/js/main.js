@@ -25,8 +25,10 @@ function setLocation(pos){
 	xhr = new XMLHttpRequest;       //インスタンス作成
 	xhr.onload = function(){        //レスポンスを受け取った時の処理（非同期）
 		var res = xhr.responseText;
-		if (res.length>0) console.log(res);
-
+		if (res.length>0){
+			console.log(res);
+			document.getElementById("result").innerHTML = res;
+		}
 	};
 	xhr.onerror = function(){       //エラーが起きた時の処理（非同期）
 		alert("error!");
@@ -60,6 +62,11 @@ function postApi() {
 	}
 }
 
+/*
+window.onload=function(){
+	postApi();
+}
+*/
 
 function getNowYMDhmsStr(){
 	const date = new Date();
