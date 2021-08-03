@@ -2,6 +2,13 @@
 $json = file_get_contents("php://input");
 $contents = json_decode($json, true);
 
+$record = [$contents['date'],$contents['lat'],$contents['lon']];
+$file_path = __DIR__.'../../../data/timecard.tsv';
+$handle = fopen($file_path, "ab");
+fputcsv($handle, $record, "\t");
+fclose($handle);
+
+
 header("Access-Control-Allow-Origin: *");header("Access-Control-Allow-Origin: *");
 echo json_encode('ok');
 ?>
