@@ -62,11 +62,9 @@ function postApi() {
 	}
 }
 
-/*
-window.onload=function(){
+document.getElementById("button").onclick = function() {
 	postApi();
 }
-*/
 
 function getNowYMDhmsStr(){
 	const date = new Date();
