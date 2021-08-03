@@ -62,7 +62,7 @@ function postApi() {
 	}
 }
 
-document.getElementById("button").onclick = function() {
+document.getElementById("check").onclick = function() {
 	postApi();
 }
 

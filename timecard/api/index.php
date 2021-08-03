@@ -8,7 +8,7 @@ $handle = fopen($file_path, "ab");
 fputcsv($handle, $record, "\t");
 fclose($handle);
 
-
+$res = ['ok'];
 header("Access-Control-Allow-Origin: *");header("Access-Control-Allow-Origin: *");
-echo json_encode('ok');
+echo json_encode($res);
 ?>
