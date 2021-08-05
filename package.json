@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/tknr/timecard#readme",
   "dependencies": {
+    "clean-css-cli": "^5.3.2",
     "npm-check-updates": "^11.8.3",
     "uglify-js": "^3.14.1"
   }
