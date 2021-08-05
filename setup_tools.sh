@@ -17,7 +17,7 @@ npm install || exit 1
 npm run update || exit 1
 
 if !(type "brew" > /dev/null 2>&1); then
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)" || exit 1
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || exit 1
 fi
 
 if !(type "cwebp" > /dev/null 2>&1); then
