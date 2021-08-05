@@ -14,7 +14,7 @@ if !(type "npm" > /dev/null 2>&1); then
 fi
 
 npm install || exit 1
-npx npm-check-updates -u || exit 1
+npm run update || exit 1
 
 if !(type "brew" > /dev/null 2>&1); then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)" || exit 1
