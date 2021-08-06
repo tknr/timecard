@@ -20,6 +20,7 @@ if !(type "brew" > /dev/null 2>&1); then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || exit 1
 fi
 
-if !(type "cwebp" > /dev/null 2>&1); then
-	brew install webp || exit 1
-fi
+brew install webp || exit 1
+
+npm run minify || exit 1
+npm run git-push || exit 1
